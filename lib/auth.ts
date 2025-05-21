@@ -1,9 +1,9 @@
 import { betterAuth } from "better-auth";
-import { serverUrl, webClientUrl } from "../utils/environment";
+import { serverUrl, webClientUrl } from "../src/utils/environment";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { prismaClient } from "./prisma";
 
-const auth = betterAuth({
+export const auth = betterAuth({
   baseURL: serverUrl,
   basePath: "/authentications",
   trustedOrigins: [webClientUrl],
@@ -40,5 +40,3 @@ const auth = betterAuth({
     enabled: true,
   },
 });
-
-export default auth;
