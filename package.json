@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.14.2",
+    "@prisma/client": "^6.8.2",
+    "better-auth": "^1.2.8",
     "hono": "^4.7.10",
     "tsx": "^4.7.1"
   },
