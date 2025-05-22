@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
-import { webClientUrl } from "../utils/environment";
+import { webClientUrl } from "../../utils/environment";
 import { authenticationsRoutes } from "./authentications/authentication-routes";
 
 export const allRoutes = new Hono();
@@ -21,4 +21,3 @@ allRoutes.route("/authentications", authenticationsRoutes);
 allRoutes.get("/", (c) => {
   return c.json({ message: "Hello World" });
 });
-
