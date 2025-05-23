@@ -6,7 +6,7 @@ on:
       - "*"
 
 env:
-  AZURE_REGION: centralindia
+  AZURE_REGION: southindia
   RESOURCE_GROUP: NeuroNest
   CONTAINER_APPS_ENVIRONMENT: NeuroNestContainerAppsEnvironment
   LOG_ANALYTICS_WORKSPACE: NeuroNestLogAnalyticsWorkspace
