@@ -10,7 +10,7 @@ env:
   RESOURCE_GROUP: NeuroNest
   CONTAINER_APPS_ENVIRONMENT: NeuroNestContainerAppsEnvironment
   LOG_ANALYTICS_WORKSPACE: NeuroNestLogAnalyticsWorkspace
-  ACR_REGISTRY: neuronest.azurecr.io
+  ACR_REGISTRY: neuronestsecondbrain.azurecr.io
   ACR_REPOSITORY_NAME: neuronest
   CONTAINER_APP_NAME: neuronest
   TARGET_PORT: 3000
