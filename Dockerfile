@@ -1,21 +1,27 @@
+# Use official Node.js image with necessary tools
 FROM node:22.1.0
 
+# Set working directory
 WORKDIR /app
 
-# Copy only needed files
+# Copy dependency and config files first to optimize caching
 COPY package*.json ./
 COPY tsconfig*.json ./
-COPY src ./src
 
-# Copy Prisma folder only if it exists by copying everything, relying on .dockerignore
+# Install dependencies using pnpm
+RUN corepack enable && pnpm install
+
+# Copy the rest of the application files
 COPY . .
 
-RUN pnpm install
+# Conditionally generate Prisma client if schema exists
+RUN [ -f "./prisma/schema.prisma" ] && npx prisma generate || echo "Skipping prisma generate"
 
-RUN if [ -f "./prisma/schema.prisma" ]; then npx prisma generate; else echo "Skipping prisma generate"; fi
-
+# Build the project
 RUN pnpm run build
 
+# Expose application port
 EXPOSE 3000
 
+# Start the application
 CMD ["pnpm", "start"]
