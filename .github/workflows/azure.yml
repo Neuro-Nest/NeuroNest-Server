@@ -6,7 +6,7 @@ on:
       - "*"
 
 env:
-  AZURE_REGION: southindia
+  AZURE_REGION: centralindia
   RESOURCE_GROUP: NeuroNest
   CONTAINER_APPS_ENVIRONMENT: NeuroNestContainerAppsEnvironment
   LOG_ANALYTICS_WORKSPACE: NeuroNestLogAnalyticsWorkspace
@@ -14,7 +14,6 @@ env:
   ACR_REPOSITORY_NAME: neuronest
   CONTAINER_APP_NAME: neuronest
   TARGET_PORT: 3000
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -27,7 +26,7 @@ jobs:
       - name: Azure Login
         uses: azure/login@v2
         with:
-          creds: ${{ secrets.NEURO_NEST_ACTIONS }}
+          creds: ${{ secrets.NEURONESTACTIONS }}
 
       # INFRA ENSURE BLOCKS
       - name: Check Resource Group exists
